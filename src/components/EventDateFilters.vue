@@ -38,7 +38,9 @@ export default {
         return forDisplay(this.$store.state.filters.startDate);
       },
       set(value){
-        this.$store.commit('setFilters',{startDate: value})
+        process.nextTick(() => {
+          this.$store.commit('setFilters',{startDate: value})
+        });
       }
     },
     endDate: {
@@ -46,7 +48,9 @@ export default {
         return forDisplay(this.$store.state.filters.endDate);
       },
       set(value){
-        this.$store.commit('setFilters',{endDate: value})
+        process.nextTick(() => {
+          this.$store.commit('setFilters',{endDate: value})
+        });
       }
     }
   },

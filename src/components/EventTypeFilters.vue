@@ -36,7 +36,9 @@ export default {
         return this.filters.eventType ? this.filters.eventType.split(',') : []
       },
       set(newEventTypes){
-        this.$store.commit('setFilters',{ eventType: newEventTypes.join(',') });
+        process.nextTick(() => {
+          this.$store.commit('setFilters',{ eventType: newEventTypes.join(',') });
+        });
       }
     }
   }
